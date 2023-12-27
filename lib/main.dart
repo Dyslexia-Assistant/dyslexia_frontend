@@ -1,5 +1,8 @@
 import 'package:dysistant/screens/home.dart';
 import 'package:dysistant/screens/pdf_viewer.dart';
+import 'package:dysistant/services/speech.dart';
+import 'package:dysistant/services/speech_confirm_send.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -55,11 +58,16 @@ class App extends ConsumerStatefulWidget {
   final String title;
 
   @override
-  ConsumerState<App> createState() => _MyHomePageState();
+  ConsumerState<App> createState() => _AppState();
 }
 
-class _MyHomePageState extends ConsumerState<App> {
-
+class _AppState extends ConsumerState<App> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SpeechConfirmToSend();
+  }
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
